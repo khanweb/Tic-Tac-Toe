@@ -59,4 +59,9 @@ class HeaderAdapter: RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder>() {
         flowerCount = updatedFlowerCount
         notifyDataSetChanged()
     }
+
+    fun updateFlower(){
+        flowerCount = 3
+        notifyDataSetChanged()
+    }
 }

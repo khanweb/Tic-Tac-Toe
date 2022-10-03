@@ -52,16 +52,21 @@ class FlowersListActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.adapter = concatAdapter
 
-        flowersListViewModel.flowersLiveData.observe(this, {
+        flowersListViewModel.flowersLiveData.observe(this) {
             it?.let {
                 flowersAdapter.submitList(it as MutableList<Flower>)
                 headerAdapter.updateFlowerCount(it.size)
             }
-        })
+        }
 
         val fab: View = findViewById(R.id.fab)
         fab.setOnClickListener {
             fabOnClick()
+        }
+
+        val fab2 : View = findViewById(R.id.fab2)
+        fab2.setOnClickListener{
+            headerAdapter.updateFlower()
         }
     }
 

@@ -36,14 +36,18 @@ class FlowerDetailViewModel(private val datasource: DataSource) : ViewModel() {
 }
 
 class FlowerDetailViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(FlowerDetailViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return FlowerDetailViewModel(
-                datasource = DataSource.getDataSource(context.resources)
-            ) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        @Suppress("UNCHECKED_CAST")
+        return FlowerDetailViewModel(datasource = DataSource.getDataSource(context.resources)) as T
     }
+
+//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//        if (modelClass.isAssignableFrom(FlowerDetailViewModel::class.java)) {
+//            @Suppress("UNCHECKED_CAST")
+//            return FlowerDetailViewModel(
+//                datasource = DataSource.getDataSource(context.resources)
+//            ) as T
+//        }
+//        throw IllegalArgumentException("Unknown ViewModel class")
+//    }
 }

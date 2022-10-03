@@ -16,6 +16,7 @@
 
 package com.example.recyclersample.data
 
+
 import android.content.res.Resources
 import com.example.recyclersample.R
 
